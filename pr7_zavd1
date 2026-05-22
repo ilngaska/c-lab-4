@@ -1,0 +1,19 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main()
+{
+    multimap <char, int> m;
+    m.insert(pair<char, int>('a', 30));
+    m.insert(pair<char, int>('b', 20));
+    m.insert(pair<char, int>('c', 40));
+    m.insert(pair<char, int>('d', 20));
+    m.insert(pair<char, int>('f', 10));
+    m.insert(pair<char, int>('e', 80));
+    m.insert(pair<char, int>('d', 10));
+    m.insert(pair<char, int>('c', 20));
+    
+    for (auto it = m.lower_bound('c'); it != m.upper_bound('e'); ++it)
+        cout << (*it).first << " " << (*it).second << endl;
+}
