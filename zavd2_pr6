@@ -1,0 +1,24 @@
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+int main()
+{
+    multimap <string, int> m;
+    m.insert(pair<string, int>("two", 30));
+    m.insert(pair<string, int>("four", 20));
+    m.insert(pair<string, int>("five", 40));
+    m.insert(pair<string, int>("two", 20));
+    m.insert(pair<string, int>("five", 10));
+    m.insert(pair<string, int>("three", 10));
+    
+    // Виводимо елементи, починаючи з ключа "three"
+    // multimap сортує рядки за алфавітом, тому порядок буде: five, four, three, two
+    for (auto it = m.find("three"); it != m.end(); ++it)
+        cout << (*it).first << " " << (*it).second << endl;
+        
+    cout << "Count for 'five': " << m.count("five") << endl; // к-ть елементів з ключем "five"
+    
+    return 0;
+}
