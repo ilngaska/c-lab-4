@@ -1,0 +1,23 @@
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+int main()
+{
+    multimap <string, int> m;
+    m.insert(pair<string, int>("apple", 30));      
+    m.insert(pair<string, int>("banana", 20));     
+    m.insert(pair<string, int>("cherry", 40));     
+    m.insert(pair<string, int>("date", 20));
+    m.insert(pair<string, int>("fig", 10));        
+    m.insert(pair<string, int>("elderberry", 80)); 
+    m.insert(pair<string, int>("date", 10));       
+    m.insert(pair<string, int>("cherry", 20));     
+    
+    // Виведе елементи в діапазоні від "cherry" до "elderberry" (включно з ключами "cherry" та "date")
+    for (auto it = m.lower_bound("cherry"); it != m.upper_bound("elderberry"); ++it)
+        cout << (*it).first << " " << (*it).second << endl;
+        
+    return 0;
+}
