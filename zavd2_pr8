@@ -1,0 +1,23 @@
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+int main()
+{
+    multimap <string, int> m;
+    m.insert(pair<string, int>("one", 30));
+    m.insert(pair<string, int>("two", 20));
+    m.insert(pair<string, int>("three", 40));
+    m.insert(pair<string, int>("four", 20));
+    m.insert(pair<string, int>("six", 10));
+    m.insert(pair<string, int>("five", 80));
+    m.insert(pair<string, int>("four", 10));
+    m.insert(pair<string, int>("four", 70));
+    
+    auto it = m.equal_range("four");
+    for (auto i = it.first; i != it.second; ++i)
+        cout << (*i).first << " " << (*i).second << endl;
+        
+    return 0;
+}
