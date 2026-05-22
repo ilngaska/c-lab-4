@@ -1,0 +1,19 @@
+#include <iostream>
+#include <map>
+#include <string> // Додано для роботи з типом string
+using namespace std;
+
+int main()
+{
+    multimap <string, int> m;
+    // Використовуємо рядкові ключі замість чисел
+    m.insert(pair<string, int>("two", 30));
+    m.insert(pair<string, int>("one", 40));
+    m.insert(pair<string, int>("two", 20));
+    m.insert(pair<string, int>("one", 10));
+    
+    for (auto it = m.begin(); it != m.end(); ++it)
+        cout << (*it).first << " " << (*it).second << endl;
+        
+    return 0;
+}
